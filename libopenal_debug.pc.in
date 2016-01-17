@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: libopenal_debug
+Description: libopenal debugging library.
+Version: @VERSION@
+Libs: -L${libdir} -lopenal_debug
+Cflags: @PCCFLAGS@ -I${includedir}
