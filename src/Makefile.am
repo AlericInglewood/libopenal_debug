@@ -1,27 +1,19 @@
-## Process this file with automake to generate Makefile.in
-
-AUTOMAKE_OPTIONS = foreign
-
-SUBDIRS = .
-
-EXTRA_DIST = pch-source.h ${BUILT_SOURCES}
+AM_CPPFLAGS =
 
 lib_LTLIBRARIES = libopenal_debug.la
 VERSIONINFO = @VERSIONINFO@
-AM_CPPFLAGS =
-BUILT_SOURCES =
-DEFS = @DEFS@
 
-bin_PROGRAMS =
 noinst_PROGRAMS = hello
 
 hello_SOURCES = hello.cc
-hello_CXXFLAGS = -pthread @CXXFLAGS@ -lopenal
+hello_CXXFLAGS = -pthread
+hello_LDADD = -lopenal
+hello_LDFLAGS = -pthread
 
 libopenal_debug_la_SOURCES = \
 	openal_debug.c
 
-libopenal_debug_la_CFLAGS = -std=c99 @CFLAGS@
+libopenal_debug_la_CFLAGS = -std=c99
 libopenal_debug_la_LIBADD = @LIBBFD@
 libopenal_debug_la_LDFLAGS = -version-info $(VERSIONINFO) -no-undefined
 
